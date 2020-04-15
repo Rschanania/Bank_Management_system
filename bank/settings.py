@@ -24,10 +24,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'n3w18ffsky1@dm7(mo3kq_lr4am%$u!d8_no*k67mx=eph=78o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 STATIC_DIRS=os.path.join(BASE_DIR,'static')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://djangobankproject.herokuapp.com/']
 
 
 # Application definition
