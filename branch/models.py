@@ -15,7 +15,7 @@ class banks(models.Model):
 
 
 class branches(models.Model):
-    
+    id=models.IntegerField(null=True,blank=True)
     ifsc=models.CharField(max_length=20,null=False,blank=False,primary_key=True)
     bank_id=models.ForeignKey(banks,on_delete=models.CASCADE)
     branch=models.CharField(max_length=200)
