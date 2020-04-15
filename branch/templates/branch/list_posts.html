@@ -1,0 +1,42 @@
+{% extends 'branch/layout.html' %}
+{% load static %}
+{% block body %}<div id="main">
+	   <h2> Class Based  View </h2>
+	   <a href="{% url 'bank-add' %}"><input class="btn btn-primary"type="submit" value="Add New Bank"></input></a>
+   
+    {% if object_list %}
+   <table>
+   		<thead>
+   			<th>ifsc</th>
+   			<th>bank_id </th>
+   			<th>branch</th>
+   			<th>city</th>
+        <th>district</th>
+        <th>state</th>
+       
+        <th>Operations</th>
+        
+		
+   		</thead>
+   		{% for branch in object_list %}
+   		<tr>
+        
+   			<td>{{branch.ifsc}}</td>
+   			<td>{{branch.bank_id}}</td>
+   			<td>{{branch.branch}}</td>
+   			<td>{{branch.city}}</td>
+        <td>{{branch.district}}</td>
+        <td>{{branch.state}}</td>
+        
+        <td><p><a href="{% url 'bank-edit' branch.id %}">edit Post</a></p>
+        <p><a href="{% url 'bank-delete' branch.id %}">delete Post</a></p></td>
+        
+        
+
+
+   			</tr>
+   		{% endfor %}
+   	</table>
+    {% endif %}
+   	
+   </div>{% endblock %}

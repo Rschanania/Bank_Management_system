@@ -1,0 +1,42 @@
+{% extends 'branch/layout.html' %}
+  {% block body %}
+   <div id="main">
+    <h2> Search Bank Record </h2>
+    <form method='post' action='/branch/search/'>
+     
+       {% csrf_token %}
+       {{form.as_p}}
+       <input type="submit" value="Search">
+
+   </form> 
+   {% if branches %}
+    <table>
+      <thead>
+        <th>Ifsc</th>
+        <th>Bank Name</th>
+        <th>Branch</th>
+        <th>City</th>
+       <th>District</th>
+       <th>State</th>
+      
+   
+       
+   
+      </thead>
+      {% for branch in branches %}
+      <tr>
+       
+        <td>{{branch.ifsc}}</td>
+        <td>{{branch.bank_id}}</td>
+        <td>{{branch.branch}}</td>
+        <td>{{branch.city}}</td>
+       <td>{{branch.district}}</td>
+       <td>{{branch.state}}</td>
+       </tr>
+      {% endfor %}
+    </table>
+   {% endif %}
+   </div>
+</body>{% endblock %}
+
+</html>

@@ -1,0 +1,15 @@
+{% extends 'branch/layout.html' %}
+{% load static %}
+{% block body %}<div id="main">
+   	<h2> Class Based View </h2>
+       <form method="post" action=""  class="form-row d-block" enctype="multipart/form-data">
+        {% csrf_token %}
+   
+     <div>
+        <input type="submit" class="btn btn-primary" value="Delete Bank Details">
+
+   	</div>
+   
+    </form>
+</div>
+    {% endblock %}

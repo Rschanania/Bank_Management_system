@@ -1,0 +1,47 @@
+{% extends 'branch/layout.html' %}
+{% load static %}
+{% block body %}<div id="main">
+   	<h2> Enter Bank Details </h2>
+   	<form method="post" action=""  class="form-row d-block" enctype="multipart/form-data">
+   	<div >
+   		
+   		{% csrf_token %}
+   		{% if form.errors %}
+   		{% for f in form.non_field_errors %}
+   		<p>{{f}}</p>
+   		{% endfor %}
+   		{% endif %}
+
+
+   		 {% if form.title.errors %}
+       {% for f in form.title.errors %}
+       <p>{{f|escape }}</p>
+       {% endfor %}
+       {% endif %}
+       {% if form.price.errors %}
+	   {% for f in form.content.errors %}
+      {% if form.thumbnail.errors %}
+       {% for f in form.thumbnail.errors %}
+       <p>{{f|escape }}</p>
+       {% endfor %}
+       {% endif %}
+	   <div >
+		<p  style="height:250px;">{{f|escape}}</p>
+		</div>
+       
+       {% endfor %}
+       {% endif %}
+	   <div>
+      {% for f in form %}
+     
+       <h1>{{f.label_tag}}</h1>
+       <h1 >{{f}}</h1>
+       {% endfor %}   
+     </div> 
+     </div>
+        <button type="submit" value="Save">Save</button>
+
+   	</div>
+   
+    </form>
+    {% endblock %}
