@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from branch.views import show
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('branch/',include("branch.urls")),
+    path('',show.as_view(),name=""),
     path('mvapi/',include('mvapi.urls')),
 ]

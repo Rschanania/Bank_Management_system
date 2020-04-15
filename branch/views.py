@@ -32,33 +32,7 @@ class delete(DeleteView):
 
 
 
-def branchFilter(request):
-    branches1=Branch.objects.prefetch_related()
-   
-    branches2=Branch.objects.prefetch_related()
-    
-    
-    branchFilter=BranchFilter(request.GET,queryset=branches1)
-    ifscFilter=IfscFilter(request.GET,queryset=branches2)
-  
-    b1=branchFilter.qs
-    b2=ifscFilter.qs
-    print(len(b1))
-    print(len(b2))
-    branches=branchFilter.qs
 
-    context={
-        'object_list':branches,
-        "branchFilter":branchFilter,
-        'ifscFilter':ifscFilter,
-    }
-
-    return render(request,'branch/filter_bank.html',context)
-
-
-
-
-    
 
 
 def search(request):
